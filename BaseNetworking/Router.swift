@@ -94,4 +94,6 @@ final public class Router<EndPoint: EndPointType> {
         guard let headers = additionalHeaders else { return }
         headers.forEach({ request.setValue($1, forHTTPHeaderField: $0) })
     }
+    
+    public init() {}
 }

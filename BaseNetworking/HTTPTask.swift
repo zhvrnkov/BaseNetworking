@@ -18,6 +18,7 @@ public enum HTTPTask {
     case requestWithParametersAndBody(bodyParameters: Parameters?,
         urlParameters: Parameters?,
         additionalHeaders: HTTPHeaders?)
+    // TODO: Write UnitTests for this case
     case multipartFormDataRequest(bodyParameters: Parameters,
         additionalHeaders: HTTPHeaders?)
 }
