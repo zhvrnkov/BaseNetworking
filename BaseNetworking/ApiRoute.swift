@@ -10,6 +10,5 @@ import Foundation
 
 public protocol ApiRoute {
     associatedtype EndPoint: EndPointType
-    associatedtype CompletionType
     var router: Router<EndPoint> { get }
 }
