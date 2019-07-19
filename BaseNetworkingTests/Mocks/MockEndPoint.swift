@@ -60,11 +60,11 @@ extension MockEndpoint: EndPointType {
         case .justRequest:
             return .request
         case .requestWithParameters:
-            return .requestWithParameters(bodyParameters: nil, urlParameters: parameters)
+            return .requestWithParameters(urlParameters: parameters)
         case .requestWithHeaders:
             return .request
         case .requestWithBody:
-            return .requestWithParametersAndBody(bodyParameters: parameters, urlParameters: nil, additionalHeaders: nil)
+            return .requestWithBody(body: <#T##Encodable#>)
         case .requestWithBodyAndNotHeaders:
             return .requestWithParametersAndBody(bodyParameters: parameters, urlParameters: nil, additionalHeaders: nil)
         case .requestWithNotHeadersButWithAdditionalHeaders:

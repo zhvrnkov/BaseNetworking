@@ -54,9 +54,9 @@ class RouterUnitTest: XCTestCase {
             switch task {
             case .request:
                 XCTAssertNil(components)
-            case .requestWithParameters(_, let up):
+            case .requestWithParameters(let up):
                 XCTAssertEqual(components == nil, up == nil)
-            case .requestWithParametersAndBody(_, let up, _):
+            case .requestWithParametersAndBody(_, let up):
                 XCTAssertEqual(components == nil, up == nil)
             default:
                 ()

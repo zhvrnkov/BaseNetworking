@@ -13,12 +13,10 @@ public typealias HTTPHeaders = [String: String]
 // TODO: Clarify bodyParameters and urlParameters. Does all cases need it?
 public enum HTTPTask {
     case request
-    case requestWithParameters(bodyParameters: Parameters?,
-        urlParameters: Parameters?)
-    case requestWithParametersAndBody(bodyParameters: Parameters?,
-        urlParameters: Parameters?,
-        additionalHeaders: HTTPHeaders?)
+    case requestWithParameters(urlParameters: Parameters)
+    case requestWithBody(body: Encodable)
+    case requestWithParametersAndBody(body: Encodable,
+        urlParameters: Parameters)
     // TODO: Write UnitTests for this case
-    case multipartFormDataRequest(bodyParameters: Parameters,
-        additionalHeaders: HTTPHeaders?)
+    case reuqestWithFormData(bodyParameters: Parameters)
 }

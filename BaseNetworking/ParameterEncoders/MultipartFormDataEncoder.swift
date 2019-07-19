@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct MultipartFormDataEncoder: ParameterEncoder {
+public struct MultipartFormDataEncoder {
     public static func encode(_ urlRequest: inout URLRequest, with parameters: Parameters) throws {
         var body = Data()
         let boundary = UUID().uuidString

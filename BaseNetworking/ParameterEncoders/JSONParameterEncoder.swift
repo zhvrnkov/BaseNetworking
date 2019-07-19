@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct JSONParameterEncoder: ParameterEncoder {
-    public static func encode(_ urlRequest: inout URLRequest, with parameters: Parameters) throws {
+public struct JSONParameterEncoder {
+    public static func encode<T: Encodable>(_ urlRequest: inout URLRequest, with body: T) throws {
         do {
-            let jsonAsData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            let jsonAsData = try JSONEncoder().encode(body)
             urlRequest.httpBody = jsonAsData
             if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
-                urlRequest.setContentType(.formData)
+                urlRequest.setContentType(.json)
             }
         } catch {
             throw error

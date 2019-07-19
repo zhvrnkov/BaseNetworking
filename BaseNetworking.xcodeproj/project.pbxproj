@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA79ECA722E1F4CA007C0F60 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79ECA622E1F4CA007C0F60 /* AnyEncodable.swift */; };
 		CA84B18022D64CFE0086877C /* BaseNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA84B17622D64CFD0086877C /* BaseNetworking.framework */; };
 		CA84B18722D64CFE0086877C /* BaseNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CA84B17922D64CFD0086877C /* BaseNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA84B19122D64D0A0086877C /* ApiRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19022D64D0A0086877C /* ApiRoute.swift */; };
 		CA84B19D22D64D250086877C /* URLRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19322D64D240086877C /* URLRequestHelper.swift */; };
 		CA84B19E22D64D250086877C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19422D64D240086877C /* Router.swift */; };
-		CA84B1A022D64D250086877C /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19722D64D240086877C /* ParameterEncoder.swift */; };
+		CA84B1A022D64D250086877C /* ParameterEncoderHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19722D64D240086877C /* ParameterEncoderHelpers.swift */; };
 		CA84B1A122D64D250086877C /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19822D64D240086877C /* URLParameterEncoder.swift */; };
 		CA84B1A222D64D250086877C /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19922D64D240086877C /* JSONParameterEncoder.swift */; };
 		CA84B1A322D64D250086877C /* MultipartFormDataEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19A22D64D240086877C /* MultipartFormDataEncoder.swift */; };
@@ -25,7 +26,7 @@
 		CA84B1BD22D64F140086877C /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B1A822D64D2E0086877C /* EndPointType.swift */; };
 		CA84B1BE22D64F140086877C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B1A622D64D2E0086877C /* HTTPMethod.swift */; };
 		CA84B1BF22D64F140086877C /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B1A722D64D2E0086877C /* HTTPTask.swift */; };
-		CA84B1C022D64F140086877C /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19722D64D240086877C /* ParameterEncoder.swift */; };
+		CA84B1C022D64F140086877C /* ParameterEncoderHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19722D64D240086877C /* ParameterEncoderHelpers.swift */; };
 		CA84B1C122D64F140086877C /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19822D64D240086877C /* URLParameterEncoder.swift */; };
 		CA84B1C222D64F140086877C /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19922D64D240086877C /* JSONParameterEncoder.swift */; };
 		CA84B1C322D64F140086877C /* MultipartFormDataEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84B19A22D64D240086877C /* MultipartFormDataEncoder.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA79ECA622E1F4CA007C0F60 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		CA84B17622D64CFD0086877C /* BaseNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BaseNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA84B17922D64CFD0086877C /* BaseNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNetworking.h; sourceTree = "<group>"; };
 		CA84B17A22D64CFD0086877C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		CA84B19022D64D0A0086877C /* ApiRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRoute.swift; sourceTree = "<group>"; };
 		CA84B19322D64D240086877C /* URLRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestHelper.swift; sourceTree = "<group>"; };
 		CA84B19422D64D240086877C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		CA84B19722D64D240086877C /* ParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
+		CA84B19722D64D240086877C /* ParameterEncoderHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoderHelpers.swift; sourceTree = "<group>"; };
 		CA84B19822D64D240086877C /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		CA84B19922D64D240086877C /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		CA84B19A22D64D240086877C /* MultipartFormDataEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormDataEncoder.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				CA84B19622D64D240086877C /* ParameterEncoders */,
 				CA84B19422D64D240086877C /* Router.swift */,
 				CA84B19322D64D240086877C /* URLRequestHelper.swift */,
+				CA79ECA622E1F4CA007C0F60 /* AnyEncodable.swift */,
 			);
 			path = BaseNetworking;
 			sourceTree = "<group>";
@@ -149,7 +152,7 @@
 		CA84B19622D64D240086877C /* ParameterEncoders */ = {
 			isa = PBXGroup;
 			children = (
-				CA84B19722D64D240086877C /* ParameterEncoder.swift */,
+				CA84B19722D64D240086877C /* ParameterEncoderHelpers.swift */,
 				CA84B19822D64D240086877C /* URLParameterEncoder.swift */,
 				CA84B19922D64D240086877C /* JSONParameterEncoder.swift */,
 				CA84B19A22D64D240086877C /* MultipartFormDataEncoder.swift */,
@@ -277,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA84B1A222D64D250086877C /* JSONParameterEncoder.swift in Sources */,
-				CA84B1A022D64D250086877C /* ParameterEncoder.swift in Sources */,
+				CA84B1A022D64D250086877C /* ParameterEncoderHelpers.swift in Sources */,
 				CA84B19E22D64D250086877C /* Router.swift in Sources */,
 				CA84B19122D64D0A0086877C /* ApiRoute.swift in Sources */,
 				CA84B1AB22D64D2E0086877C /* HTTPTask.swift in Sources */,
@@ -286,6 +289,7 @@
 				CA84B1A322D64D250086877C /* MultipartFormDataEncoder.swift in Sources */,
 				CA84B1A922D64D2E0086877C /* DataHelper.swift in Sources */,
 				CA84B1AA22D64D2E0086877C /* HTTPMethod.swift in Sources */,
+				CA79ECA722E1F4CA007C0F60 /* AnyEncodable.swift in Sources */,
 				CA84B1A122D64D250086877C /* URLParameterEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +307,7 @@
 				CA84B1BE22D64F140086877C /* HTTPMethod.swift in Sources */,
 				CA84B1CC22D64F6B0086877C /* RouterUnitTest.swift in Sources */,
 				CA84B1BF22D64F140086877C /* HTTPTask.swift in Sources */,
-				CA84B1C022D64F140086877C /* ParameterEncoder.swift in Sources */,
+				CA84B1C022D64F140086877C /* ParameterEncoderHelpers.swift in Sources */,
 				CA84B1C122D64F140086877C /* URLParameterEncoder.swift in Sources */,
 				CA84B1C222D64F140086877C /* JSONParameterEncoder.swift in Sources */,
 				CA84B1C322D64F140086877C /* MultipartFormDataEncoder.swift in Sources */,

@@ -34,63 +34,38 @@ final public class Router<EndPoint: EndPointType> {
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval: 10.0)
         request.httpMethod = route.httpMethod.rawValue
-        addAditionalHeaders(route.headers, request: &request)
+        addHeaders(route.headers, request: &request)
         do {
-            switch route.task {
-            case .request:
-                request.setContentType(.json)
-            case .requestWithParameters(let bodyParameters,
-                                        let urlParameters):
-                try configureParametersLikeJson(bodyParameters: bodyParameters,
-                                             urlParameters: urlParameters,
-                                             request: &request)
-            case .requestWithParametersAndBody(let bodyParameters,
-                                               let urlParameters,
-                                               let additionalHeaders):
-                addAditionalHeaders(additionalHeaders, request: &request)
-                try configureParametersLikeJson(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
-            case .multipartFormDataRequest(let bodyParameters,
-                                           let additionalHeaders):
-                addAditionalHeaders(additionalHeaders, request: &request)
-                try configureParametersLikeFormData(bodyParameters: bodyParameters, urlParameters: nil, request: &request)
-            }
+            try configure(request: &request, by: route.task)
             return request
         } catch {
             throw error
         }
     }
     
-    private static func configureParametersLikeJson(bodyParameters: Parameters?,
-                                     urlParameters: Parameters?,
-                                     request: inout URLRequest) throws {
+    private static func configure(request: inout URLRequest, by task: HTTPTask) throws {
         do {
-            if let bodyParameters = bodyParameters {
-                try JSONParameterEncoder.encode(&request, with: bodyParameters)
-            }
-            if let urlParameters = urlParameters {
+            switch task {
+            case .request:
+                ()
+            case .requestWithParameters(let urlParameters):
                 try URLParameterEncoder.encode(&request, with: urlParameters)
-            }
-        } catch {
-            throw error
-        }
-    }
-    
-    private static func configureParametersLikeFormData(bodyParameters: Parameters?,
-                                                    urlParameters: Parameters?,
-                                                    request: inout URLRequest) throws {
-        do {
-            if let bodyParameters = bodyParameters {
+            case .requestWithBody(let body):
+                let any = AnyEncodable(body)
+                try JSONParameterEncoder.encode(&request, with: any)
+            case .requestWithParametersAndBody(let body, let urlParameters):
+                let any = AnyEncodable(body)
+                try JSONParameterEncoder.encode(&request, with: any)
+                try URLParameterEncoder.encode(&request, with: urlParameters)
+            case .reuqestWithFormData(let bodyParameters):
                 try MultipartFormDataEncoder.encode(&request, with: bodyParameters)
             }
-            if let urlParameters = urlParameters {
-                try URLParameterEncoder.encode(&request, with: urlParameters)
-            }
         } catch {
             throw error
         }
     }
     
-    private static func addAditionalHeaders(_ additionalHeaders: HTTPHeaders?, request: inout URLRequest) {
+    private static func addHeaders(_ additionalHeaders: HTTPHeaders?, request: inout URLRequest) {
         guard let headers = additionalHeaders else { return }
         headers.forEach({ request.setValue($1, forHTTPHeaderField: $0) })
     }
