@@ -18,5 +18,5 @@ public enum HTTPTask {
     case requestWithParametersAndBody(body: Encodable,
         urlParameters: Parameters)
     // TODO: Write UnitTests for this case
-    case reuqestWithFormData(bodyParameters: Parameters)
+    case requestWithFormData(bodyParameters: Parameters)
 }

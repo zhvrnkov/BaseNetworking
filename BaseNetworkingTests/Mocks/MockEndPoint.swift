@@ -15,6 +15,7 @@ enum MockEndpoint: String {
     case requestWithBody
     case requestWithBodyAndNotHeaders
     case requestWothBodyAndParameters
+    case requestWithFormData
     
     private static let allStringCases = [
         "justRequest",
@@ -22,7 +23,8 @@ enum MockEndpoint: String {
         "requestWithHeaders",
         "requestWithBody",
         "requestWithBodyAndNotHeaders",
-        "requestWothBodyAndParameters"
+        "requestWothBodyAndParameters",
+        "requestWithFormData"
     ]
     
     static var allCases: [MockEndpoint] = MockEndpoint.allStringCases
@@ -55,6 +57,8 @@ extension MockEndpoint: EndPointType {
             return .get
         case .requestWothBodyAndParameters:
             return .post
+        case .requestWithFormData:
+            return .post
         }
     }
     var task: HTTPTask {
@@ -72,23 +76,22 @@ extension MockEndpoint: EndPointType {
             task = .requestWithBody(body: MockEncodable(username: "VladZhavoornkov", password: "Zerstoren"))
         case .requestWothBodyAndParameters:
             task = .requestWithParametersAndBody(body: MockEncodable(username: "VladZhavoornkov", password: "Zerstoren"), urlParameters: parameters)
+        case .requestWithFormData:
+            task = .requestWithFormData(bodyParameters: parameters)
         }
-        return .request
+        return task
     }
     var headers: HTTPHeaders? {
         switch self {
-        case .justRequest:
-            return nil
-        case .requestWithParameters:
+        case .justRequest,
+             .requestWithParameters,
+             .requestWithBody,
+             .requestWithBodyAndNotHeaders,
+             .requestWothBodyAndParameters,
+             .requestWithFormData:
             return nil
         case .requestWithHeaders:
             return ["First": "Foo", "Second": "Bar"]
-        case .requestWithBody:
-            return nil
-        case .requestWithBodyAndNotHeaders:
-            return nil
-        case .requestWothBodyAndParameters:
-            return nil
         }
     }
 }

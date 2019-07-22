@@ -57,7 +57,7 @@ final public class Router<EndPoint: EndPointType> {
                 let any = AnyEncodable(body)
                 try JSONParameterEncoder.encode(&request, with: any)
                 try URLParameterEncoder.encode(&request, with: urlParameters)
-            case .reuqestWithFormData(let bodyParameters):
+            case .requestWithFormData(let bodyParameters):
                 try MultipartFormDataEncoder.encode(&request, with: bodyParameters)
             }
         } catch {

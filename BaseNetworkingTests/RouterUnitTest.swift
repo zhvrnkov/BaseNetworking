@@ -55,13 +55,25 @@ class RouterUnitTest: XCTestCase {
             case .request:
                 XCTAssertNil(components)
             case .requestWithParameters(_):
-                XCTAssertEqual(components, nil)
+                XCTAssertNotNil(components)
             case .requestWithParametersAndBody(_):
-                XCTAssertEqual(components, nil)
+                XCTAssertNotNil(components)
             default:
                 ()
             }
         }
+    }
+    
+    func testThatFormDataIsSet() {
+        let requestWithFormDataIndex = cases.firstIndex(of: .requestWithFormData)!
+        let requestWithFormData = outputs[requestWithFormDataIndex]
+        XCTAssertNotNil(requestWithFormData.httpBody)
+    }
+    
+    func testThatJsonIsSet() {
+        let requestWithBodyIndex = cases.firstIndex(of: .requestWithBody)!
+        let requestWithBody = outputs[requestWithBodyIndex]
+        XCTAssertNotNil(requestWithBody.httpBody)
     }
     
     func testRequest() {
