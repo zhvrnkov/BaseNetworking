@@ -14,17 +14,19 @@ enum MockEndpoint: String {
     case requestWithHeaders
     case requestWithBody
     case requestWithBodyAndNotHeaders
-    case requestWithNotHeadersButWithAdditionalHeaders
+    case requestWothBodyAndParameters
     
     private static let allStringCases = [
         "justRequest",
+        "requestWithParameters",
         "requestWithHeaders",
         "requestWithBody",
         "requestWithBodyAndNotHeaders",
-        "requestWithNotHeadersButWithAdditionalHeaders"
+        "requestWothBodyAndParameters"
     ]
     
-    static var allCases: [MockEndpoint] = MockEndpoint.allStringCases.compactMap { MockEndpoint(rawValue: $0) }
+    static var allCases: [MockEndpoint] = MockEndpoint.allStringCases
+        .compactMap { MockEndpoint(rawValue: $0) }
 }
 
 extension MockEndpoint: EndPointType {
@@ -51,25 +53,27 @@ extension MockEndpoint: EndPointType {
             return .delete
         case .requestWithBodyAndNotHeaders:
             return .get
-        case .requestWithNotHeadersButWithAdditionalHeaders:
-            return .get
+        case .requestWothBodyAndParameters:
+            return .post
         }
     }
     var task: HTTPTask {
+        let task: HTTPTask
         switch self {
         case .justRequest:
-            return .request
+            task = .request
         case .requestWithParameters:
-            return .requestWithParameters(urlParameters: parameters)
+            task = .requestWithParameters(urlParameters: parameters)
         case .requestWithHeaders:
-            return .request
+            task = .request
         case .requestWithBody:
-            return .requestWithBody(body: <#T##Encodable#>)
+            task = .requestWithBody(body: MockEncodable(username: "VladZhavoornkov", password: "Zerstoren"))
         case .requestWithBodyAndNotHeaders:
-            return .requestWithParametersAndBody(bodyParameters: parameters, urlParameters: nil, additionalHeaders: nil)
-        case .requestWithNotHeadersButWithAdditionalHeaders:
-            return .requestWithParametersAndBody(bodyParameters: nil, urlParameters: nil, additionalHeaders: ["foo": "bar"])
+            task = .requestWithBody(body: MockEncodable(username: "VladZhavoornkov", password: "Zerstoren"))
+        case .requestWothBodyAndParameters:
+            task = .requestWithParametersAndBody(body: MockEncodable(username: "VladZhavoornkov", password: "Zerstoren"), urlParameters: parameters)
         }
+        return .request
     }
     var headers: HTTPHeaders? {
         switch self {
@@ -83,7 +87,7 @@ extension MockEndpoint: EndPointType {
             return nil
         case .requestWithBodyAndNotHeaders:
             return nil
-        case .requestWithNotHeadersButWithAdditionalHeaders:
+        case .requestWothBodyAndParameters:
             return nil
         }
     }

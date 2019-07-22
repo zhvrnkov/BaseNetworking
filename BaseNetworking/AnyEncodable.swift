@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AnyEncodable: Encodable {
+public struct AnyEncodable: Encodable {
     
     private let encodable: Encodable
     
@@ -16,7 +16,7 @@ struct AnyEncodable: Encodable {
         self.encodable = encodable
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         try encodable.encode(to: encoder)
     }
 }

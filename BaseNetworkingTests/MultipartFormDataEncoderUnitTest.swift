@@ -18,10 +18,4 @@ class MultipartFormDataEncoderUnitTest: XCTestCase {
     func testHttpBodySetting() {
         XCTAssertNotNil(request.httpBody, "which means that parameters haven't been setted")
     }
-    
-    func testHttpBodyContent() {
-        let body: Data! = request.httpBody
-        let string = String(data: body, encoding: .utf8)
-        
-    }
 }

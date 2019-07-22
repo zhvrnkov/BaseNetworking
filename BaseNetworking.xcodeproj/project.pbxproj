@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA749E6122E58D6B0011D406 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79ECA622E1F4CA007C0F60 /* AnyEncodable.swift */; };
+		CA749E6322E58E340011D406 /* MockEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA749E6222E58E340011D406 /* MockEncodable.swift */; };
 		CA79ECA722E1F4CA007C0F60 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79ECA622E1F4CA007C0F60 /* AnyEncodable.swift */; };
 		CA84B18022D64CFE0086877C /* BaseNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA84B17622D64CFD0086877C /* BaseNetworking.framework */; };
 		CA84B18722D64CFE0086877C /* BaseNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = CA84B17922D64CFD0086877C /* BaseNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA749E6222E58E340011D406 /* MockEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEncodable.swift; sourceTree = "<group>"; };
 		CA79ECA622E1F4CA007C0F60 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		CA84B17622D64CFD0086877C /* BaseNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BaseNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA84B17922D64CFD0086877C /* BaseNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNetworking.h; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 				CA84B1D022D650ED0086877C /* MockRouteResponse.swift */,
 				CA84B1D222D650F70086877C /* MockEndPoint.swift */,
 				CA84B1D622D65B2B0086877C /* MockRoute.swift */,
+				CA749E6222E58E340011D406 /* MockEncodable.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -303,7 +307,9 @@
 				CA84B1CE22D64F930086877C /* MultipartFormDataEncoderUnitTest.swift in Sources */,
 				CA84B1BC22D64F140086877C /* DataHelper.swift in Sources */,
 				CA84B1CA22D64F5C0086877C /* JSONParameterEncoderUnitTest.swift in Sources */,
+				CA749E6322E58E340011D406 /* MockEncodable.swift in Sources */,
 				CA84B1BD22D64F140086877C /* EndPointType.swift in Sources */,
+				CA749E6122E58D6B0011D406 /* AnyEncodable.swift in Sources */,
 				CA84B1BE22D64F140086877C /* HTTPMethod.swift in Sources */,
 				CA84B1CC22D64F6B0086877C /* RouterUnitTest.swift in Sources */,
 				CA84B1BF22D64F140086877C /* HTTPTask.swift in Sources */,

@@ -54,10 +54,10 @@ class RouterUnitTest: XCTestCase {
             switch task {
             case .request:
                 XCTAssertNil(components)
-            case .requestWithParameters(let up):
-                XCTAssertEqual(components == nil, up == nil)
-            case .requestWithParametersAndBody(_, let up):
-                XCTAssertEqual(components == nil, up == nil)
+            case .requestWithParameters(_):
+                XCTAssertEqual(components, nil)
+            case .requestWithParametersAndBody(_):
+                XCTAssertEqual(components, nil)
             default:
                 ()
             }
@@ -65,29 +65,27 @@ class RouterUnitTest: XCTestCase {
     }
     
     func testRequest() {
-        let sema = DispatchSemaphore(value: 0)
-        DispatchQueue.global().async {
+        let expectation = XCTestExpectation(description: "perform test request")
             MockApiRoute().testRequest { result in
                 switch result {
                 case .success(_):
-                    sema.signal()
+                    ()
                 case .failure(_):
                     XCTFail()
-                    sema.signal()
                 }
+                expectation.fulfill()
             }
-        }
-        sema.wait()
+        wait(for: [expectation], timeout: 10)
     }
     
     private func getCheckedCasesAndOutputs() -> (cases: [MockEndpoint], outputs: [URLRequest]) {
         let cases = MockEndpoint.allCases
-        let outputs = cases.map { getCheckedRequest(of: $0) }
+        let outputs = cases.map { buildAndCheckRequest(of: $0) }
         XCTAssertEqual(cases.count, outputs.count)
         return (cases, outputs)
     }
     
-    private func getCheckedRequest(of type: MockEndpoint) -> URLRequest {
+    private func buildAndCheckRequest(of type: MockEndpoint) -> URLRequest {
         let output = try? requestBuilder(type)
         XCTAssertNotNil(output, "Errors are here")
         return output!
