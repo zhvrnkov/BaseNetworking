@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BaseNetworkingLibrary
 
 class URLParameterEncoderUnitTest: XCTestCase {
     let baseURL = URL(string: "https://www.google.com")!

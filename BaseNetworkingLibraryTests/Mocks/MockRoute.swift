@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import BaseNetworkingLibrary
 
 fileprivate func handleNetwork(response: HTTPURLResponse) -> Result<Void, Error> {
     switch response.statusCode {

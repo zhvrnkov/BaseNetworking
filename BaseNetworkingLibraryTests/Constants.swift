@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import BaseNetworkingLibrary
 
 let parameters: Parameters = [
     "integer": 123,

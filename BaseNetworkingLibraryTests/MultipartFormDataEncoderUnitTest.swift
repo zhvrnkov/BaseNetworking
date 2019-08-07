@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BaseNetworkingLibrary
 
 class MultipartFormDataEncoderUnitTest: XCTestCase {
     let baseURL = URL(string: "https://www.google.com")!

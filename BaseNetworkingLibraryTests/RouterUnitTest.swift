@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BaseNetworkingLibrary
 
 class RouterUnitTest: XCTestCase {
     let requestBuilder = Router<MockEndpoint>.buildRequest

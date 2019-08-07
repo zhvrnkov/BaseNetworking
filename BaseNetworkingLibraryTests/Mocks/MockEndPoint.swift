@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import BaseNetworkingLibrary
 
 enum MockEndpoint: String {
     case justRequest
